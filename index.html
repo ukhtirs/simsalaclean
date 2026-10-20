@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simsalaclean – Coming Soon | Home Cleaning Jakarta</title>
+  <meta name="description" content="Simsalaclean segera hadir di Jakarta! Layanan home cleaning profesional berbasis app. Daftar waitlist sekarang dan dapatkan penawaran early bird eksklusif." />
+
+  <!-- Favicon from brand logo -->
+  <link rel="icon" type="image/png" href="Brand Logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simsalaclean – Coming Soon!" />
+  <meta property="og:description" content="Home cleaning profesional berbasis app, hadir di Jakarta. Daftar waitlist eksklusif sekarang!" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #F26522;
+      --orange-light: #FF8A4C;
+      --orange-pale:  #FFF3EC;
+      --blue:         #1B4FBE;
+      --blue-light:   #2E6BE6;
+      --blue-pale:    #EEF3FF;
+      --yellow:       #F5C518;
+      --white:        #FFFFFF;
+      --gray-100:     #F8F9FA;
+      --gray-200:     #E9ECEF;
+      --gray-500:     #6C757D;
+      --gray-700:     #343A40;
+      --text:         #1A1A2E;
+      --radius:       16px;
+      --radius-sm:    8px;
+      --shadow:       0 4px 24px rgba(27,79,190,0.10);
+      --shadow-lg:    0 8px 40px rgba(27,79,190,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-14px) rotate(6deg); }
+    }
+    @keyframes floatX {
+      0%, 100% { transform: translateX(0px); }
+      50%       { transform: translateX(10px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(242,101,34,0.35); }
+      50%       { box-shadow: 0 0 0 14px rgba(242,101,34,0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ===== UTILITY ===== */
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .btn:hover  { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(242,101,34,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--orange-light);
+      box-shadow: 0 8px 30px rgba(242,101,34,0.45);
+    }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .btn-secondary:hover { background: var(--blue-pale); }
+
+    .section-label {
+      display: inline-block;
+      background: var(--orange-pale);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .section-label.blue { background: var(--blue-pale); color: var(--blue); }
+    .section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1.65rem, 4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .section-title span { color: var(--orange); }
+    .section-sub {
+      color: var(--gray-500);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 12px 0;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(27,79,190,0.08);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-coming-soon {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-pale);
+      padding: 5px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.06em;
+    }
+    .nav-coming-soon .live-dot {
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: blink-dot 1.6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .nav-cta { font-size: 0.88rem; padding: 10px 22px; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100svh;
+      background: linear-gradient(140deg, #EEF3FF 0%, #FFF8F4 50%, #FFFBEA 100%);
+      display: flex;
+      align-items: center;
+      padding-top: 76px;
+      padding-bottom: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(242,101,34,0.07) 0%, transparent 70%);
+      top: -140px; right: -120px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(27,79,190,0.06) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Hero grid: left copy + right form */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === Hero left: copy === */
+    .hero-copy { animation: fadeInUp 0.7s ease both; }
+
+    .coming-soon-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 2px solid var(--orange);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+    .coming-soon-banner .live-dot {
+      width: 9px; height: 9px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: blink-dot 1.6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1.9rem, 4.5vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-title .highlight {
+      color: var(--orange);
+      position: relative;
+    }
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 4px;
+      background: var(--yellow);
+      border-radius: 4px;
+      opacity: 0.65;
+    }
+    .hero-title .blue { color: var(--blue); }
+
+    .hero-subtitle {
+      color: var(--gray-500);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-trust img { width: 20px; height: 20px; }
+    .hero-trust strong { color: var(--text); }
+
+    /* === Hero right: above-the-fold form card === */
+    .hero-form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 12px 50px rgba(27,79,190,0.14);
+      border: 1.5px solid rgba(27,79,190,0.08);
+      animation: fadeInUp 0.8s 0.12s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--blue));
+    }
+    .form-card-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .form-card-eyebrow img { width: 16px; height: 16px; }
+    .form-card-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .form-card-sub {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    /* === Form shared styles === */
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .form-group label span { color: var(--orange); }
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute;
+      left: 13px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .input-icon img { width: 17px; height: 17px; object-fit: contain; filter: opacity(0.45); }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.93rem;
+      color: var(--text);
+      background: var(--gray-100);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus {
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(27,79,190,0.1);
+    }
+    .form-group input::placeholder { color: #BBBBBB; }
+    .ig-prefix {
+      position: absolute;
+      left: 42px; top: 50%; transform: translateY(-50%);
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      pointer-events: none;
+    }
+    .form-group input.has-prefix { padding-left: 62px; }
+    .field-error {
+      color: var(--orange);
+      font-size: 0.75rem;
+      margin-top: 4px;
+      display: none;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      font-size: 0.97rem;
+      border-radius: var(--radius-sm);
+      margin-top: 6px;
+    }
+    .form-privacy {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      margin-top: 12px;
+      line-height: 1.65;
+    }
+    .form-privacy a {
+      color: var(--blue);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+    }
+    .form-privacy a:hover { color: var(--orange); }
+
+    /* Form error banner */
+    .form-error-banner {
+      display: none;
+      background: #FFF0ED;
+      color: #C0392B;
+      border: 1.5px solid #F5A9A1;
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    /* Form success */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 16px 0 8px;
+    }
+    .form-success img { width: 76px; margin-bottom: 12px; }
+    .form-success h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-success p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.65; }
+
+    /* Social proof mini strip */
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange-pale);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 16px;
+    }
+    .social-proof img { width: 22px; height: 22px; }
+    .social-proof-text { font-size: 0.78rem; color: var(--orange); font-weight: 600; line-height: 1.4; }
+
+    /* ===== COMING SOON STRIP ===== */
+    #coming-soon-strip {
+      background: linear-gradient(90deg, var(--blue) 0%, #1A3FA8 50%, var(--blue) 100%);
+      color: var(--white);
+      padding: 14px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      overflow: hidden;
+    }
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .strip-inner span { opacity: 0.7; }
+    .strip-highlight {
+      color: var(--yellow);
+      font-weight: 800;
+    }
+    .strip-dot {
+      width: 5px; height: 5px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+    }
+
+    /* ===== COUNTDOWN ===== */
+    #countdown {
+      background: var(--blue);
+      color: var(--white);
+      padding: 52px 0;
+    }
+    .countdown-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+    .countdown-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .countdown-label img { width: 18px; filter: brightness(0) invert(1); }
+    .countdown-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+      font-weight: 800;
+      opacity: 0.95;
+      line-height: 1.35;
+    }
+    .countdown-title span { color: var(--yellow); }
+    .countdown-units {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .countdown-unit {
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      min-width: 84px;
+      text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.15);
+    }
+    .countdown-unit .num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--yellow);
+      display: block;
+    }
+    .countdown-unit .lbl {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* ===== WHY ===== */
+    #why {
+      padding: 84px 0;
+      background: var(--white);
+    }
+    .why-header { text-align: center; margin-bottom: 52px; }
+    .why-header .section-sub { margin: 0 auto; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      border: 1.5px solid var(--gray-200);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .why-card:hover::before { opacity: 1; }
+    .why-icon {
+      width: 68px; height: 68px;
+      margin: 0 auto 18px;
+      background: var(--orange-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-icon img { width: 38px; height: 38px; object-fit: contain; }
+    .why-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .why-card p { color: var(--gray-500); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ===== HOW IT WORKS ===== */
+    #how {
+      padding: 84px 0;
+      background: linear-gradient(180deg, var(--blue-pale) 0%, #EEF5FF 100%);
+    }
+    .how-header { text-align: center; margin-bottom: 52px; }
+    .how-header .section-sub { margin: 0 auto; }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+    .how-steps::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: calc(12.5% + 35px);
+      right: calc(12.5% + 35px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--blue));
+      opacity: 0.2;
+    }
+    .step-card { text-align: center; position: relative; }
+    .step-number {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 20px rgba(242,101,34,0.3);
+      position: relative; z-index: 1;
+    }
+    .step-card:nth-child(even) .step-number {
+      background: var(--blue);
+      box-shadow: 0 4px 20px rgba(27,79,190,0.3);
+    }
+    .step-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .step-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ===== PRICING ===== */
+    #pricing {
+      padding: 84px 0;
+      background: var(--white);
+    }
+    .pricing-header { text-align: center; margin-bottom: 52px; }
+    .pricing-header .section-sub { margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .pricing-card {
+      border-radius: var(--radius);
+      border: 2px solid var(--gray-200);
+      padding: 32px 24px;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      background: var(--white);
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pricing-card.popular {
+      border-color: var(--orange);
+      box-shadow: 0 8px 40px rgba(242,101,34,0.18);
+      transform: scale(1.04);
+    }
+    .pricing-card.popular:hover { transform: scale(1.04) translateY(-4px); }
+    .popular-badge {
+      position: absolute;
+      top: -15px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+    }
+    .pkg-icon {
+      width: 56px; height: 56px;
+      background: var(--orange-pale);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .pkg-icon img { width: 32px; height: 32px; object-fit: contain; }
+    .pkg-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .pkg-tagline { font-size: 0.78rem; color: var(--gray-500); margin-bottom: 18px; }
+    .pkg-price { margin-bottom: 20px; }
+    .pkg-price .currency { font-size: 1rem; font-weight: 700; color: var(--orange); vertical-align: super; }
+    .pkg-price .amount {
+      font-family: 'Nunito', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .pkg-price .period { font-size: 0.78rem; color: var(--gray-500); }
+    .pkg-divider { height: 1px; background: var(--gray-200); margin-bottom: 18px; }
+    .pkg-features {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+    .pkg-features li {
+      display: flex; align-items: flex-start;
+      gap: 9px;
+      font-size: 0.84rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+    .pkg-features li .check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: #E8F5E9;
+      color: #2E7D32;
+      font-size: 0.68rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .pkg-features li .check.orange { background: var(--orange-pale); color: var(--orange); }
+    .pricing-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 0.84rem;
+      color: var(--gray-500);
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap;
+    }
+    .pricing-note img { width: 16px; }
+
+    /* ===== WAITLIST SECTION ===== */
+    #waitlist {
+      padding: 84px 0;
+      background: linear-gradient(135deg, var(--blue) 0%, #1035A0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #waitlist::before {
+      content: '';
+      position: absolute;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(245,197,24,0.12) 0%, transparent 70%);
+      top: -140px; right: -90px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #waitlist::after {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      bottom: -70px; left: -50px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .waitlist-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .waitlist-copy { color: var(--white); }
+    .waitlist-copy .section-label {
+      background: rgba(245,197,24,0.18);
+      color: var(--yellow);
+      border: 1px solid rgba(245,197,24,0.3);
+    }
+    .waitlist-copy .section-title { color: var(--white); }
+    .waitlist-copy .section-title span { color: var(--yellow); }
+    .waitlist-copy .section-sub { color: rgba(255,255,255,0.75); max-width: 100%; }
+    .waitlist-perks {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 12px; margin-top: 22px;
+    }
+    .waitlist-perks li {
+      display: flex; align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .perk-icon {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .wizard-float {
+      margin-top: 28px;
+    }
+    .wizard-float img {
+      width: 90px;
+      opacity: 0.88;
+      animation: floatY 3.2s ease-in-out infinite;
+    }
+
+    /* Waitlist CTA block (replaces form card in waitlist section) */
+    .waitlist-cta-block { display: flex; justify-content: center; }
+    .waitlist-cta-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 42px 36px;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.22);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .waitlist-cta-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--blue));
+    }
+    .waitlist-cta-wizard {
+      width: 90px;
+      margin-bottom: 16px;
+      animation: floatY 3.2s ease-in-out infinite;
+    }
+    .waitlist-cta-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .waitlist-cta-sub {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .waitlist-cta-btn {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      padding: 16px;
+    }
+    .waitlist-cta-note {
+      margin-top: 14px;
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-logo img { height: 38px; margin-bottom: 14px; filter: brightness(0) invert(1); opacity: 0.8; }
+    .footer-tagline { font-size: 0.85rem; margin-bottom: 18px; color: rgba(255,255,255,0.45); }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links button {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      cursor: pointer;
+      padding: 4px 0;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .footer-links button:hover { color: var(--yellow); }
+    .footer-copy { font-size: 0.74rem; color: rgba(255,255,255,0.3); }
+    .footer-copy span { color: var(--orange); }
+
+    /* ===== PRIVACY POLICY MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,14,40,0.72);
+      z-index: 900;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open {
+      display: flex;
+      animation: fadeIn 0.2s ease both;
+    }
+    .modal-box {
+      background: var(--white);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      animation: scaleIn 0.25s ease both;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid var(--gray-200);
+      flex-shrink: 0;
+    }
+    .modal-header h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      color: var(--gray-700);
+    }
+    .modal-close:hover { background: var(--gray-200); transform: rotate(90deg); }
+    .modal-body {
+      padding: 24px 28px;
+      overflow-y: auto;
+      flex: 1;
+      scroll-behavior: smooth;
+    }
+    .modal-body h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+    .modal-body h3:first-child { margin-top: 0; }
+    .modal-body p, .modal-body li {
+      font-size: 0.87rem;
+      color: var(--gray-700);
+      line-height: 1.75;
+    }
+    .modal-body ul {
+      padding-left: 18px;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .modal-body .highlight-box {
+      background: var(--blue-pale);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 0.85rem;
+      color: var(--blue);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .modal-footer {
+      padding: 16px 28px 22px;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .modal-footer p { font-size: 0.78rem; color: var(--gray-500); }
+
+    /* ===== RESPONSIVE ===== */
+
+    /* Tablet – 960px */
+    @media (max-width: 960px) {
+      .hero-inner       { grid-template-columns: 1fr; gap: 32px; }
+      .hero-copy        { text-align: center; }
+      .hero-subtitle    { margin: 0 auto 28px; }
+      .hero-trust       { justify-content: center; }
+      .coming-soon-banner { margin-bottom: 18px; }
+
+      .why-grid         { grid-template-columns: 1fr 1fr; }
+      .how-steps        { grid-template-columns: 1fr 1fr; }
+      .how-steps::before { display: none; }
+
+      .pricing-grid     { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .pricing-card.popular { transform: scale(1); }
+
+      .waitlist-inner   { grid-template-columns: 1fr; gap: 36px; }
+      .waitlist-copy    { text-align: center; }
+      .waitlist-perks   { align-items: center; }
+      .wizard-float     { display: none; }
+
+      .nav-coming-soon  { display: none; }
+    }
+
+    /* Mobile – 640px */
+    @media (max-width: 640px) {
+      .hero-inner       { gap: 24px; }
+      .hero-form-card   { padding: 28px 20px; }
+      .hero-title       { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+
+      .why-grid         { grid-template-columns: 1fr; }
+      .how-steps        { grid-template-columns: 1fr 1fr; }
+
+      .countdown-units  { gap: 10px; }
+      .countdown-unit   { padding: 14px 16px; min-width: 68px; }
+      .countdown-unit .num { font-size: 2rem; }
+
+      .waitlist-form-card { padding: 26px 18px; }
+
+      .strip-inner .strip-dot { display: none; }
+
+      .modal-body       { padding: 18px 20px; }
+      .modal-header     { padding: 18px 20px 14px; }
+    }
+
+    /* Small mobile – 400px */
+    @media (max-width: 400px) {
+      .how-steps        { grid-template-columns: 1fr; }
+      .countdown-units  { gap: 8px; }
+      .countdown-unit   { min-width: 58px; padding: 12px 10px; }
+      .countdown-unit .num { font-size: 1.7rem; }
+      .btn              { padding: 13px 22px; font-size: 0.92rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== PRIVACY POLICY MODAL ===== -->
+  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modal-title">🔒 Kebijakan Privasi</h2>
+        <button class="modal-close" id="modal-close-btn" aria-label="Tutup modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="highlight-box">
+          Simsalaclean berkomitmen untuk melindungi data pribadimu. Kami hanya mengumpulkan data minimum yang diperlukan dan tidak akan menjual atau menyebarkan informasimu kepada pihak manapun.
+        </div>
+
+        <h3>1. Data yang Kami Kumpulkan</h3>
+        <p>Pada tahap pre-launch ini, kami hanya mengumpulkan:</p>
+        <ul>
+          <li><strong>Nama lengkap</strong> — untuk menyapa kamu secara personal saat kami menghubungimu.</li>
+          <li><strong>Username Instagram</strong> — sebagai satu-satunya saluran komunikasi kami denganmu saat ini.</li>
+        </ul>
+        <p style="margin-top:10px;">Kami tidak meminta nomor telepon, alamat email, alamat rumah, atau informasi finansial apapun pada tahap ini.</p>
+
+        <h3>2. Tujuan Pengumpulan Data</h3>
+        <p>Data yang kamu berikan digunakan semata-mata untuk:</p>
+        <ul>
+          <li>Menambahkan namamu ke daftar <em>waitlist</em> pre-launch Simsalaclean.</li>
+          <li>Menghubungimu melalui Instagram saat layanan kami resmi diluncurkan.</li>
+          <li>Memberikan informasi penawaran <em>early bird</em> eksklusif kepada member waitlist.</li>
+        </ul>
+
+        <h3>3. Cara Kami Menyimpan Data</h3>
+        <p>Data kamu disimpan dalam sistem internal kami yang terlindungi. Kami menerapkan langkah-langkah keamanan yang wajar untuk mencegah akses, pengungkapan, perubahan, atau penghancuran data tanpa izin.</p>
+
+        <h3>4. Pembagian Data kepada Pihak Ketiga</h3>
+        <p>Kami <strong>tidak menjual, menyewakan, atau membagikan</strong> data pribadimu kepada pihak ketiga manapun untuk tujuan pemasaran atau komersial. Data hanya dapat dibagikan jika diwajibkan oleh hukum yang berlaku di Indonesia.</p>
+
+        <h3>5. Hak Kamu atas Data Pribadi</h3>
+        <p>Kamu memiliki hak untuk:</p>
+        <ul>
+          <li>Mengetahui data apa yang kami simpan tentangmu.</li>
+          <li>Meminta koreksi data yang tidak akurat.</li>
+          <li>Meminta penghapusan datamu dari daftar waitlist kapan saja.</li>
+        </ul>
+        <p style="margin-top:10px;">Untuk menggunakan hak-hak ini, hubungi kami melalui Instagram <strong>@simsalaclean</strong>.</p>
+
+        <h3>6. Retensi Data</h3>
+        <p>Data kamu akan kami simpan selama diperlukan untuk tujuan waitlist. Setelah layanan diluncurkan dan kamu tidak melakukan pendaftaran akun, data waitlist akan dihapus dalam waktu 90 hari setelah tanggal <em>launch</em>.</p>
+
+        <h3>7. Perubahan Kebijakan Privasi</h3>
+        <p>Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. Perubahan material akan dikomunikasikan melalui Instagram kami. Penggunaan layanan setelah perubahan berarti kamu menyetujui kebijakan yang diperbarui.</p>
+
+        <h3>8. Kontak</h3>
+        <p>Jika ada pertanyaan terkait kebijakan privasi ini, silakan hubungi kami di Instagram: <strong>@simsalaclean</strong></p>
+
+        <p style="margin-top:20px;font-size:0.78rem;color:var(--gray-500);">Terakhir diperbarui: Oktober 2026 · Berlaku untuk layanan pre-launch di Jakarta, Indonesia.</p>
+      </div>
+      <div class="modal-footer">
+        <p>Dengan mendaftar ke waitlist, kamu menyetujui kebijakan privasi ini.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav id="main-nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#" aria-label="Simsalaclean – halaman utama">
+        <img src="Brand Logo.png" alt="Simsalaclean Logo" />
+      </a>
+      <div class="nav-coming-soon" aria-label="Status: Coming Soon">
+        <span class="live-dot" aria-hidden="true"></span>
+        Coming Soon · Jakarta
+      </div>
+      <a href="#waitlist" class="btn btn-primary nav-cta">
+        Daftar Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== COMING SOON STRIP ===== -->
+  <div id="coming-soon-strip" role="banner" aria-label="Pengumuman coming soon">
+    <div class="container">
+      <div class="strip-inner">
+        <span>✨ <strong class="strip-highlight">Simsalaclean</strong> segera hadir di Jakarta!</span>
+        <span class="strip-dot" aria-hidden="true"></span>
+        <span>🎉 Daftar waitlist &amp; dapatkan diskon <span class="strip-highlight">early bird</span></span>
+        <span class="strip-dot" aria-hidden="true"></span>
+        <span>📱 <span class="strip-highlight">Coming Soon</span> di App Store &amp; Play Store</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO (above the fold) ===== -->
+  <section id="hero" aria-label="Hero – Coming Soon Simsalaclean">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left: Copywriting -->
+        <div class="hero-copy">
+          <div class="coming-soon-banner" aria-label="Status coming soon">
+            <span class="live-dot" aria-hidden="true"></span>
+            🚀 Coming Soon — Pre-Launch Waitlist
+          </div>
+          <h1 class="hero-title">
+            Rumah Bersih,<br/>
+            Hidup Lebih <span class="highlight">Santai</span><br/>
+            <span class="blue">Seperti Disulap!</span>
+          </h1>
+          <p class="hero-subtitle">
+            Layanan <em>home cleaning</em> berbasis <em>app</em> pertama yang hadir untuk orang-orang sibuk Jakarta. Tidak ada waktu bersih-bersih? Biar kami yang urus — profesional, cepat, dan terpercaya.
+          </p>
+          <div class="hero-trust">
+            <img src="icon house.png" alt="" aria-hidden="true" />
+            <span>Segera hadir di <strong>Jakarta</strong> — jadilah yang <strong>pertama</strong> tahu!</span>
+          </div>
+          <div class="hero-trust" style="margin-top:10px;">
+            <img src="blink1.png" alt="" aria-hidden="true" />
+            <span>🎁 Kejutan spesial untuk <strong>100 pendaftar pertama</strong></span>
+          </div>
+        </div>
+
+        <!-- Right: Lead Form (above the fold) -->
+        <div>
+          <div class="hero-form-card" id="hero-form-card">
+            <div class="form-card-eyebrow">
+              <img src="icon magic.png" alt="" aria-hidden="true" />
+              Join Waitlist — Gratis!
+            </div>
+            <h2 class="form-card-title">Daftar Sekarang,<br/>Dapat Penawaran Eksklusif!</h2>
+            <p class="form-card-sub">Isi nama dan username Instagram kamu. Tidak perlu nomor HP atau email.</p>
+
+            <!-- Form -->
+            <div id="hero-form-body">
+              <form id="hero-waitlist-form" novalidate aria-label="Form pendaftaran waitlist">
+                <div class="form-group">
+                  <label for="hero-full-name">Nama Lengkap <span aria-hidden="true">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true"><img src="icon heart.png" alt="" /></span>
+                    <input
+                      type="text"
+                      id="hero-full-name"
+                      name="name"
+                      placeholder="Contoh: Budi Santoso"
+                      required
+                      autocomplete="name"
+                      aria-required="true"
+                      aria-describedby="hero-error-name"
+                    />
+                  </div>
+                  <div class="field-error" id="hero-error-name" role="alert">Nama tidak boleh kosong.</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="hero-instagram">Username Instagram <span aria-hidden="true">*</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true"><img src="callbook.png" alt="" /></span>
+                    <span class="ig-prefix" aria-hidden="true">@</span>
+                    <input
+                      type="text"
+                      id="hero-instagram"
+                      name="instagram"
+                      class="has-prefix"
+                      placeholder="usernamekamu"
+                      required
+                      autocomplete="off"
+                      inputmode="text"
+                      aria-required="true"
+                      aria-describedby="hero-error-ig"
+                      aria-label="Username Instagram (tanpa @)"
+                    />
+                  </div>
+                  <div class="field-error" id="hero-error-ig" role="alert">Username Instagram tidak boleh kosong.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit">
+                  ✨ Daftarkan Aku Sekarang!
+                </button>
+              </form>
+              <p class="form-privacy">
+                🔒 Data aman &amp; tidak disebarkan. Dengan mendaftar kamu menyetujui
+                <button onclick="openPrivacyModal()" aria-haspopup="dialog">Kebijakan Privasi</button> kami.
+              </p>
+
+              <div class="social-proof">
+                <img src="blink1.png" alt="" aria-hidden="true" />
+                <div class="social-proof-text">🎁 Kejutan eksklusif untuk 100 pendaftar pertama!</div>
+              </div>
+            </div>
+
+            <!-- Success state -->
+            <div class="form-success" id="hero-form-success" aria-live="polite">
+              <img src="wizard quick.png" alt="Pendaftaran berhasil!" />
+              <h3>Yeay, kamu terdaftar! 🎉</h3>
+              <p>Terima kasih sudah bergabung di waitlist Simsalaclean.<br/>Kami akan menghubungimu di Instagram saat kami <em>launch</em>!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COUNTDOWN ===== -->
+  <section id="countdown" aria-label="Countdown menuju launch">
+    <div class="container">
+      <div class="countdown-inner">
+        <div class="countdown-label">
+          <img src="time.png" alt="" aria-hidden="true" />
+          Launch Countdown
+        </div>
+        <p class="countdown-title">
+          Simsalaclean hadir dalam <span id="launch-days" aria-live="polite">—</span> hari lagi!
+        </p>
+        <div class="countdown-units" aria-label="Hitung mundur waktu launch">
+          <div class="countdown-unit">
+            <span class="num" id="cd-days" aria-label="hari">00</span>
+            <span class="lbl" aria-hidden="true">Hari</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-hours" aria-label="jam">00</span>
+            <span class="lbl" aria-hidden="true">Jam</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-minutes" aria-label="menit">00</span>
+            <span class="lbl" aria-hidden="true">Menit</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-seconds" aria-label="detik">00</span>
+            <span class="lbl" aria-hidden="true">Detik</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section id="why" aria-label="Mengapa memilih Simsalaclean">
+    <div class="container">
+      <div class="why-header">
+        <span class="section-label">Kenapa Simsalaclean?</span>
+        <h2 class="section-title">Tiga Alasan Kamu <span>Perlu Kami</span></h2>
+        <p class="section-sub">Kami tahu kamu sibuk. Makanya kami rancang layanan ini khusus untuk kamu yang tidak punya waktu — tapi tetap ingin rumah selalu bersih dan nyaman.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <img src="wizard quick.png" alt="" aria-hidden="true" />
+          </div>
+          <h3>⚡ Ekspres</h3>
+          <p>Tim kami datang tepat waktu sesuai jadwal yang kamu tentukan. Tidak perlu tunggu lama — rumah bersih dalam sekejap.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <img src="usp1.png" alt="" aria-hidden="true" />
+          </div>
+          <h3>🏅 Profesional</h3>
+          <p>Setiap <em>cleaner</em> telah melalui pelatihan standar <em>higienitas</em> dan menggunakan peralatan serta produk pembersih berkualitas.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <img src="icon heart.png" alt="" aria-hidden="true" />
+          </div>
+          <h3>🛡️ Terpercaya</h3>
+          <p>Tim kami terverifikasi, beridentitas jelas, dan beroperasi dengan standar keamanan tinggi agar kamu tenang saat kami di rumahmu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how" aria-label="Cara kerja layanan">
+    <div class="container">
+      <div class="how-header">
+        <span class="section-label blue">Cara Kerja</span>
+        <h2 class="section-title">Sesederhana <span>4 Langkah</span></h2>
+        <p class="section-sub">Cukup dari <em>smartphone</em>-mu, layanan <em>cleaning</em> profesional langsung datang ke pintu rumahmu.</p>
+      </div>
+      <div class="how-steps">
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">1</div>
+          <h3>Download App</h3>
+          <p>Unduh aplikasi Simsalaclean di smartphone-mu (segera hadir di Play Store &amp; App Store).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">2</div>
+          <h3>Pilih Paket</h3>
+          <p>Pilih paket langganan bulanan yang sesuai dengan kebutuhan dan <em>budget</em>-mu.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">3</div>
+          <h3>Jadwalkan Cleaning</h3>
+          <p>Tentukan tanggal dan jam yang paling nyaman. Tim kami akan datang tepat waktu.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">4</div>
+          <h3>Nikmati Rumah Bersih</h3>
+          <p>Santai saja — biar tim profesional kami yang <em>handle</em> semuanya. Kamu cukup menikmati hasilnya!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" aria-label="Paket layanan dan harga">
+    <div class="container">
+      <div class="pricing-header">
+        <span class="section-label">Paket Layanan</span>
+        <h2 class="section-title">Pilih <span>Paket</span> yang Sesuai</h2>
+        <p class="section-sub">Semua paket sudah mencakup peralatan dan produk pembersih profesional. Tidak perlu menyiapkan apapun — tinggal duduk santai!</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- LITE -->
+        <div class="pricing-card">
+          <div class="pkg-icon"><img src="icon house.png" alt="" aria-hidden="true" /></div>
+          <div class="pkg-name">Lite</div>
+          <div class="pkg-tagline">Untuk hunian kecil &amp; studio</div>
+          <div class="pkg-price">
+            <span class="currency">Rp</span>
+            <span class="amount">299</span><span style="font-family:'Nunito';font-size:1.3rem;font-weight:900;">K</span>
+            <span class="period"> / bulan</span>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features" aria-label="Fitur paket Lite">
+            <li><span class="check" aria-hidden="true">✓</span> 2× kunjungan per bulan</li>
+            <li><span class="check" aria-hidden="true">✓</span> Cleaning area hingga 40 m²</li>
+            <li><span class="check" aria-hidden="true">✓</span> Vacuum &amp; mopping lantai</li>
+            <li><span class="check" aria-hidden="true">✓</span> Pembersihan kamar mandi</li>
+            <li><span class="check" aria-hidden="true">✓</span> Peralatan &amp; produk disediakan</li>
+          </ul>
+          <a href="#waitlist" class="btn btn-secondary" style="width:100%;border-radius:8px;">Daftar Waitlist</a>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">⭐ Paling Populer</div>
+          <div class="pkg-icon"><img src="icon magic.png" alt="" aria-hidden="true" /></div>
+          <div class="pkg-name">Standard</div>
+          <div class="pkg-tagline">Untuk rumah keluarga 2–3 kamar</div>
+          <div class="pkg-price">
+            <span class="currency">Rp</span>
+            <span class="amount">549</span><span style="font-family:'Nunito';font-size:1.3rem;font-weight:900;">K</span>
+            <span class="period"> / bulan</span>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features" aria-label="Fitur paket Standard">
+            <li><span class="check orange" aria-hidden="true">✓</span> 4× kunjungan per bulan</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Cleaning area hingga 80 m²</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Vacuum, mopping &amp; scrubbing</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Upholstery cleaning (sofa &amp; kasur)</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Pembersihan dapur &amp; kamar mandi</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Peralatan &amp; produk disediakan</li>
+            <li><span class="check orange" aria-hidden="true">✓</span> Priority scheduling</li>
+          </ul>
+          <a href="#waitlist" class="btn btn-primary" style="width:100%;border-radius:8px;">Daftar Waitlist</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="pricing-card">
+          <div class="pkg-icon"><img src="usp2.png" alt="" aria-hidden="true" /></div>
+          <div class="pkg-name">Premium</div>
+          <div class="pkg-tagline">Untuk rumah besar atau villa</div>
+          <div class="pkg-price">
+            <span class="currency">Rp</span>
+            <span class="amount">899</span><span style="font-family:'Nunito';font-size:1.3rem;font-weight:900;">K</span>
+            <span class="period"> / bulan</span>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features" aria-label="Fitur paket Premium">
+            <li><span class="check" aria-hidden="true">✓</span> Unlimited kunjungan per bulan</li>
+            <li><span class="check" aria-hidden="true">✓</span> Cleaning area hingga 150 m²</li>
+            <li><span class="check" aria-hidden="true">✓</span> Deep cleaning lengkap</li>
+            <li><span class="check" aria-hidden="true">✓</span> Upholstery &amp; furniture cleaning</li>
+            <li><span class="check" aria-hidden="true">✓</span> Pembersihan seluruh area rumah</li>
+            <li><span class="check" aria-hidden="true">✓</span> Peralatan &amp; produk premium</li>
+            <li><span class="check" aria-hidden="true">✓</span> Dedicated cleaner team</li>
+            <li><span class="check" aria-hidden="true">✓</span> Express 24-jam request</li>
+          </ul>
+          <a href="#waitlist" class="btn btn-secondary" style="width:100%;border-radius:8px;">Daftar Waitlist</a>
+        </div>
+
+      </div>
+      <p class="pricing-note">
+        <img src="blink1.png" alt="" aria-hidden="true" />
+        Harga <em>early bird</em> khusus untuk member waitlist! Daftar sekarang sebelum <em>launch</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== WAITLIST SECTION ===== -->
+  <section id="waitlist" aria-label="Daftar waitlist">
+    <div class="container">
+      <div class="waitlist-inner">
+
+        <div class="waitlist-copy">
+          <span class="section-label">Join Waitlist</span>
+          <h2 class="section-title">Jadilah yang <span>Pertama</span> Tahu!</h2>
+          <p class="section-sub">
+            Simsalaclean segera hadir di Jakarta. Daftarkan namamu sekarang dan dapatkan akses eksklusif, penawaran <em>early bird</em>, serta notifikasi pertama saat kami <em>launch</em>.
+          </p>
+          <ul class="waitlist-perks">
+            <li><span class="perk-icon" aria-hidden="true">🎉</span> Diskon <em>early bird</em> eksklusif untuk member waitlist</li>
+            <li><span class="perk-icon" aria-hidden="true">⚡</span> Akses prioritas saat <em>launch</em> — booking lebih dulu</li>
+            <li><span class="perk-icon" aria-hidden="true">✨</span> Notifikasi langsung saat aplikasi tersedia</li>
+            <li><span class="perk-icon" aria-hidden="true">🎁</span> Kejutan spesial untuk 100 pendaftar pertama</li>
+          </ul>
+          <div class="wizard-float">
+            <img src="icon magic.png" alt="Simsalaclean mascot" />
+          </div>
+        </div>
+
+        <div class="waitlist-cta-block">
+          <div class="waitlist-cta-card">
+            <img src="wizard quick.png" alt="" aria-hidden="true" class="waitlist-cta-wizard" />
+            <h3 class="waitlist-cta-title">Siap Bergabung?</h3>
+            <p class="waitlist-cta-sub">
+              Formulir pendaftaran sudah ada di atas halaman — scroll ke atas atau klik tombol di bawah untuk langsung mengisinya!
+            </p>
+            <a href="#hero" class="btn btn-primary waitlist-cta-btn" onclick="scrollToForm(event)">
+              ✨ Daftarkan Aku Sekarang!
+            </a>
+            <p class="waitlist-cta-note">
+              🔒 Gratis. Hanya nama &amp; username Instagram. Tidak ada spam.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Brand Logo.png" alt="Simsalaclean" />
+      </div>
+      <p class="footer-tagline">Rumah bersih, hidup lebih santai — seperti disulap! ✨</p>
+      <div class="footer-links">
+        <button onclick="openPrivacyModal()" aria-haspopup="dialog">Kebijakan Privasi</button>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 <span>Simsalaclean</span>. Hak cipta dilindungi. &middot; Jakarta, Indonesia
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // ---- Navbar scroll shadow ----
+    const mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ---- Countdown timer ----
+    // Change this date to your actual launch date: new Date(YYYY, MM-1, DD)
+    const LAUNCH_DATE = new Date(2027, 0, 1); // 1 January 2027
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+      const diff = LAUNCH_DATE - Date.now();
+      if (diff <= 0) {
+        document.getElementById('launch-days').textContent = '0';
+        ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id => {
+          document.getElementById(id).textContent = '00';
+        });
+        return;
+      }
+      const days    = Math.floor(diff / 86400000);
+      const hours   = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('launch-days').textContent  = days;
+      document.getElementById('cd-days').textContent      = pad(days);
+      document.getElementById('cd-hours').textContent     = pad(hours);
+      document.getElementById('cd-minutes').textContent   = pad(minutes);
+      document.getElementById('cd-seconds').textContent   = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ---- Privacy modal ----
+    const privacyModal  = document.getElementById('privacy-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    function openPrivacyModal() {
+      privacyModal.classList.add('open');
+      privacyModal.querySelector('.modal-box').focus();
+      document.body.style.overflow = 'hidden';
+    }
+    function closePrivacyModal() {
+      privacyModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalCloseBtn.addEventListener('click', closePrivacyModal);
+
+    // Close on overlay click
+    privacyModal.addEventListener('click', function(e) {
+      if (e.target === privacyModal) closePrivacyModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && privacyModal.classList.contains('open')) {
+        closePrivacyModal();
+      }
+    });
+
+    // ---- Smooth scroll to hero form & focus first input ----
+    function scrollToForm(e) {
+      e.preventDefault();
+      const heroSection = document.getElementById('hero');
+      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // After scroll, focus first name input
+      setTimeout(() => {
+        document.getElementById('hero-full-name').focus({ preventScroll: true });
+      }, 600);
+    }
+
+    // ---- Google Apps Script integration ----
+    // Replace this URL with your own Apps Script Web App deployment URL
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3CbgobzMqrmDEY00Mk9tUI07alkTNVcyNZIjNo6eMRh5dWQlCFIcASospuovMy82dWg/exec';
+
+    /**
+     * Wire up the waitlist form:
+     * - Validates name & Instagram fields
+     * - Sends data to the Google Apps Script web app
+     * - Shows the success card or inline error messages
+     */
+    function handleWaitlistForm(form, formBody, successEl, errorName, errorIg, nameInput, igInput) {
+      // Find or create a general inline error banner inside the form card
+      function showFormError(msg) {
+        let banner = form.parentElement.querySelector('.form-error-banner');
+        if (!banner) {
+          banner = document.createElement('div');
+          banner.className = 'form-error-banner';
+          form.parentElement.insertBefore(banner, form);
+        }
+        banner.textContent = msg;
+        banner.style.display = 'block';
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      function hideFormError() {
+        const banner = form.parentElement.querySelector('.form-error-banner');
+        if (banner) banner.style.display = 'none';
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        hideFormError();
+
+        // Reset field-level errors
+        errorName.style.display = 'none';
+        errorName.textContent = 'Nama tidak boleh kosong.';
+        errorIg.style.display = 'none';
+        errorIg.textContent = 'Username Instagram tidak boleh kosong.';
+
+        // Validate
+        let valid = true;
+        const name = nameInput.value.trim();
+        const ig = igInput.value.trim();
+
+        if (!name) { errorName.style.display = 'block'; valid = false; }
+        if (!ig)   { errorIg.style.display = 'block';   valid = false; }
+        if (!valid) return;
+
+        // Guard: URL not yet configured
+        if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+          showFormError('⚠️ Form belum terhubung. Tempel URL deployment Apps Script ke APPS_SCRIPT_URL di index.html.');
+          return;
+        }
+
+        // Loading state
+        const submitBtn = form.querySelector('.form-submit');
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '⏳ Mendaftarkan...';
+        submitBtn.disabled = true;
+
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ name: name, instagram: ig })
+          });
+          const result = await response.json();
+
+          if (result.success) {
+            formBody.style.display = 'none';
+            successEl.style.display = 'block';
+          } else if (result.error === 'duplicate') {
+            errorIg.textContent = 'Username Instagram ini sudah terdaftar di waitlist.';
+            errorIg.style.display = 'block';
+          } else {
+            throw new Error(result.error || 'Gagal mendaftar');
+          }
+        } catch (error) {
+          console.error('Waitlist submission error:', error);
+          showFormError('😔 Terjadi kesalahan. Silakan coba lagi atau hubungi kami di @simsalaclean.');
+        } finally {
+          submitBtn.innerHTML = originalHTML;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+
+    // Hero form
+    handleWaitlistForm(
+      document.getElementById('hero-waitlist-form'),
+      document.getElementById('hero-form-body'),
+      document.getElementById('hero-form-success'),
+      document.getElementById('hero-error-name'),
+      document.getElementById('hero-error-ig'),
+      document.getElementById('hero-full-name'),
+      document.getElementById('hero-instagram')
+    );
+
+    // ---- Intersection observer fade-in ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.55s ease both';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.why-card, .step-card, .pricing-card').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
