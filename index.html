@@ -14,6 +14,15 @@
   <meta property="og:description" content="Home cleaning profesional berbasis app, hadir di Jakarta. Daftar waitlist eksklusif sekarang!" />
   <meta property="og:type" content="website" />
 
+  <!-- ===== GOOGLE TAG MANAGER ===== -->
+  <!-- Ganti GTM-XXXXXXX dengan Container ID kamu dari tagmanager.google.com -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PLFMGMCM');</script>
+  <!-- End Google Tag Manager -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -1075,6 +1084,12 @@
 </head>
 <body>
 
+  <!-- ===== GOOGLE TAG MANAGER (noscript) ===== -->
+  <!-- Ganti GTM-XXXXXXX dengan Container ID kamu -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLFMGMCM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- ===== PRIVACY POLICY MODAL ===== -->
   <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box">
@@ -1521,6 +1536,11 @@
 
   <!-- ===== JS ===== -->
   <script>
+    // ===== DATALAYER INITIALIZATION =====
+    // Harus didefinisikan SEBELUM GTM snippet, tapi karena GTM ada di <head>
+    // dan script ini ada di body, kita pastikan dataLayer tersedia.
+    window.dataLayer = window.dataLayer || [];
+
     // ---- Navbar scroll shadow ----
     const mainNav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
@@ -1665,6 +1685,18 @@
           if (result.success) {
             formBody.style.display = 'none';
             successEl.style.display = 'block';
+
+            // ===== GA4 CUSTOM EVENT: waitlist_signup =====
+            // Event ini akan ditangkap oleh GTM dan dikirim ke GA4
+            // Setup di GTM: Trigger = Custom Event "waitlist_signup"
+            //               Tag = GA4 Event dengan nama "generate_lead"
+            window.dataLayer.push({
+              event: 'waitlist_signup',          // nama custom event untuk GTM trigger
+              form_name: 'hero_waitlist_form',   // identifikasi form
+              form_source: 'hero_section',       // dari section mana
+              user_name: name,                   // nama pendaftar (opsional, untuk debugging)
+              // catatan: instagram username TIDAK dikirim ke GA4 demi privasi
+            });
           } else if (result.error === 'duplicate') {
             errorIg.textContent = 'Username Instagram ini sudah terdaftar di waitlist.';
             errorIg.style.display = 'block';
